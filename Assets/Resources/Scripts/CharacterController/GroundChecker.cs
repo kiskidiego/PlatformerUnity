@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
-    [SerializeField] Transform groundCheckPoint;
+    [SerializeField] Transform[] groundCheckPoint;
     [SerializeField] float groundCheckDistance = 0.1f;
     [SerializeField] float maxGroundAngle = 45f;
     [SerializeField] LayerMask groundLayer;
@@ -27,19 +27,30 @@ public class GroundChecker : MonoBehaviour
         {
             return cachedResult;
         }
-        RaycastHit2D hit = Physics2D.Raycast(groundCheckPoint.position, Vector2.down, groundCheckDistance, groundLayer);
-        if (hit.collider != null)
+        foreach (Transform point in groundCheckPoint)
         {
-            float dot = Vector2.Dot(hit.normal, Vector2.up);
-            if (dot >= minGroundDotProduct)
+            RaycastHit2D hit = Physics2D.Raycast(point.position, Vector2.down, groundCheckDistance, groundLayer);
+            if (hit.collider != null)
             {
-                cachedResult = true;
-                useCache = true;
-                return true;
+                float dot = Vector2.Dot(hit.normal, Vector2.up);
+                if (dot >= minGroundDotProduct)
+                {
+                    cachedResult = true;
+                    useCache = true;
+                    return true;
+                }
             }
         }
         cachedResult = false;
         useCache = true;
         return false;
+    }
+    public void ExcludeLayer(int layer)
+    {
+        groundLayer &= ~(1 << layer);
+    }
+    public void IncludeLayer(int layer)
+    {
+        groundLayer |= (1 << layer);
     }
 }

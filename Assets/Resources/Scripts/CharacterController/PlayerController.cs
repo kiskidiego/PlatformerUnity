@@ -12,6 +12,7 @@ using UnityEngine.TextCore.Text;
 [RequireComponent(typeof(CharacterAttack))]
 [RequireComponent(typeof(CharacterDirection))]
 [RequireComponent(typeof(CharacterParry))]
+[RequireComponent(typeof(PlatformFallThrough))]
 [RequireComponent(typeof(CharacterAnimatorController))]
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputActionReference dashAction;
     [SerializeField] InputActionReference parryAction;
     [SerializeField] InputActionReference lookAction;
+    [SerializeField] InputActionReference fallAction;
 
     CharacterMovement characterMovement;
     CharacterJumpHandler characterJumpHandler;
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     CharacterAttack characterAttack;
     CharacterDirection characterDirection;
     CharacterParry characterParry;
+    PlatformFallThrough platformFallThrough;
     CharacterAnimatorController characterAnimator;
 
 
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
         characterAttack = GetComponent<CharacterAttack>();
         characterDirection = GetComponent<CharacterDirection>();
         characterParry = GetComponent<CharacterParry>();
+        platformFallThrough = GetComponent<PlatformFallThrough>();
         characterAnimator = GetComponent<CharacterAnimatorController>();
     }
 
@@ -56,6 +60,7 @@ public class PlayerController : MonoBehaviour
         dashAction.action.Enable();
         parryAction.action.Enable();
         lookAction.action.Enable();
+        fallAction.action.Enable();
 
         moveAction.action.performed += OnMove;
         moveAction.action.canceled += OnMove;
@@ -71,6 +76,10 @@ public class PlayerController : MonoBehaviour
         attackAction.action.started += OnAttack;
 
         parryAction.action.started += OnParry;
+
+        fallAction.action.started += OnStartFallThrough;
+
+        fallAction.action.canceled += OnStopFallThrough;
     }
 
     void OnDisable()
@@ -92,6 +101,10 @@ public class PlayerController : MonoBehaviour
 
         parryAction.action.started -= OnParry;
 
+        fallAction.action.started -= OnStartFallThrough;
+
+        fallAction.action.canceled -= OnStopFallThrough;
+
         moveAction.action.Disable();
         jumpAction.action.Disable();
         attackAction.action.Disable();
@@ -110,7 +123,7 @@ public class PlayerController : MonoBehaviour
         {
             if(wallJump.StartWallJump())
             {
-                Debug.Log("Wall Jump started");
+                //Debug.Log("Wall Jump started");
                 characterAnimator.TriggerJump();
             }
         }
@@ -118,7 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             if(characterJumpHandler.StartJump())
             {
-                Debug.Log("Jump started");
+                //Debug.Log("Jump started");
                 characterAnimator.TriggerJump();
             }
         }
@@ -146,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDashEnd()
     {
-        Debug.Log("Dash end received in PlayerController");
+        //Debug.Log("Dash end received in PlayerController");
         EnableInput();
     }
 
@@ -155,7 +168,7 @@ public class PlayerController : MonoBehaviour
         if(characterAttack.Attack(EnableInput))
         {
             DisableInput();
-            Debug.Log("Attack performed");
+            //Debug.Log("Attack performed");
             characterAnimator.TriggerAttack();
         }
     }
@@ -165,9 +178,18 @@ public class PlayerController : MonoBehaviour
         if(characterParry.StartParry(EnableInput, characterAnimator.TriggerParryHit))
         {
             DisableInput();
-            Debug.Log("Parry performed");
+            //Debug.Log("Parry performed");
             characterAnimator.TriggerParry();
         }
+    }
+
+    private void OnStartFallThrough(InputAction.CallbackContext context)
+    {
+        platformFallThrough.EnableFallThrough();
+    }
+    private void OnStopFallThrough(InputAction.CallbackContext context)
+    {
+        platformFallThrough.DisableFallThrough();
     }
 
     void EnableInput()

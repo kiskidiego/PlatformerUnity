@@ -43,13 +43,27 @@ public class WallCling : MonoBehaviour
             }
             return;
         }
-        Vector2 rayDirection = new Vector2(Mathf.Sign(characterDirection.Direction.x), 0f);
+        Vector2 rayDirection;
+        float length = wallCheckDistance;
         if(isClinging)
         {
             rayDirection = new Vector2(-characterDirection.Facing, 0f);
         }
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, wallCheckDistance, wallLayerMask);
-        Debug.DrawRay(transform.position, rayDirection * wallCheckDistance, Color.red);
+        else
+        {
+            if(Mathf.Approximately(characterDirection.Direction.x, 0f))
+            {
+                rayDirection = new Vector2(0, 0f);
+                length = 0f;
+            }
+            else
+            {
+                rayDirection = new Vector2(Mathf.Sign(characterDirection.Direction.x), 0f);
+            }
+        }
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, length, wallLayerMask);
+        Debug.Log("Wall Cling Raycast: Direction " + rayDirection + " Length " + length);
+        Debug.DrawRay(transform.position, rayDirection * length, Color.red);
         if(hit.collider != null && Vector2.Dot(hit.normal, -rayDirection) >= minWallDotProduct)
         {
             if (!isClinging)
