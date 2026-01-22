@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2133798196171471020}
   - component: {fileID: 7904411246507771194}
   - component: {fileID: 4748080117675228989}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: StaticSpikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8674334689624491547, guid: 54538f0c1af305946b6d12de40577b8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

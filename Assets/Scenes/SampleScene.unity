@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 957065245}
   - component: {fileID: 957065244}
   - component: {fileID: 957065243}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: DoubleJumpPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26133,11 +26133,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7687560218169178004, guid: cc4adf169eac6394dbbb5371a63c69c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.98
+      value: 29.5
       objectReference: {fileID: 0}
     - target: {fileID: 7687560218169178004, guid: cc4adf169eac6394dbbb5371a63c69c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.04
+      value: -16.5
       objectReference: {fileID: 0}
     - target: {fileID: 7687560218169178004, guid: cc4adf169eac6394dbbb5371a63c69c7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26254,11 +26254,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7205740987527645993, guid: 3f4ee4646bf55ea4ba5ca37c131b3811, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.5
+      value: 22.5
       objectReference: {fileID: 0}
     - target: {fileID: 7205740987527645993, guid: 3f4ee4646bf55ea4ba5ca37c131b3811, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.5
+      value: -15.5
       objectReference: {fileID: 0}
     - target: {fileID: 7205740987527645993, guid: 3f4ee4646bf55ea4ba5ca37c131b3811, type: 3}
       propertyPath: m_LocalPosition.z

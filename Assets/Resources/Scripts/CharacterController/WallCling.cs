@@ -6,6 +6,7 @@ using UnityEngine.TextCore.Text;
 [RequireComponent(typeof(CharacterDirection))]
 public class WallCling : MonoBehaviour
 {
+    public bool canWallCling = false;
     [SerializeField] float gravityMultiplier = 0.5f;
     [SerializeField] float wallCheckDistance = 0.5f;
     [SerializeField] float maxWallAngle = 15f;
@@ -30,6 +31,14 @@ public class WallCling : MonoBehaviour
     
     void FixedUpdate()
     {
+        if (!canWallCling)
+        {
+            if (isClinging)
+            {
+                StopCling();
+            }
+            return;
+        }
         CheckForWall();
     }
 

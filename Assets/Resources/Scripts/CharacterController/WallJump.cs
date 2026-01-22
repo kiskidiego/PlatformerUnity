@@ -6,7 +6,7 @@ using UnityEngine.TextCore.Text;
 [RequireComponent(typeof(CharacterDirection))]
 public class WallJump : MonoBehaviour
 {
-    [SerializeField] public bool canWallJump = false;
+    [SerializeField] public bool canWallJump = true;
     [SerializeField] Jump wallJump = new Jump();
     [SerializeField] float jumpAngle = 45f;
     Rigidbody2D rigidBody;

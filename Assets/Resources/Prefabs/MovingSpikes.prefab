@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8639870976866963593}
   - component: {fileID: 5084768847639818661}
   - component: {fileID: 6938596392652084400}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: MovingSpikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -390283786, guid: 943ca92be133ae24a8eceb4eda7e4252, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -190,3 +190,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
   damage: 20
+  knockbackForce: 5
