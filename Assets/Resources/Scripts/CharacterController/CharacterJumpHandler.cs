@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(GroundChecker))]
 public class CharacterJumpHandler : MonoBehaviour
 {
+    public bool canJump = true;
+    public bool canAirJump = false;
     [SerializeField] Jump groundJump = new Jump();
     [SerializeField] Jump[] airJumps = new Jump[0];
 
@@ -37,6 +39,10 @@ public class CharacterJumpHandler : MonoBehaviour
     }
     bool StartAirJump()
     {
+        if (!canAirJump)
+        {
+            return false;
+        }
         if (currentJumpIndex >= airJumps.Length)
         {
             return false;

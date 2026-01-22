@@ -33,7 +33,6 @@ public class Cooldown
             if (currentCooldown <= 0f)
             {
                 currentCooldown = 0f;
-                Debug.Log("Cooldown ended, calling callback: " + callbackOnCooldownEnd);
                 callbackOnCooldownEnd?.Invoke();
                 callbackOnCooldownEnd = null;
             }

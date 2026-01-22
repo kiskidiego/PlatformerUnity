@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterDirection))]
 public class CharacterDash : MonoBehaviour
 {
+    public bool canDash = false;
     [SerializeField] float dashSpeed = 20f;
     [SerializeField] float dashDuration = 0.2f;
     [SerializeField] Cooldown dashCooldown = new Cooldown(1f);
@@ -30,6 +31,11 @@ public class CharacterDash : MonoBehaviour
 
     public bool StartDash()
     {
+        if (!canDash)
+        {
+            return false;
+        }
+
         if (dashCooldown.IsOffCooldown() && !isDashing)
         {
             isDashing = true;

@@ -21,6 +21,7 @@ public class CharacterAnimatorController : MonoBehaviour
     [SerializeField] const string PARRY_TRIGGER = "Parry";
     [SerializeField] const string PARRY_HIT_TRIGGER = "ParryHit";
     [SerializeField] const string IS_GROUNDED_PARAM = "IsGrounded";
+    [SerializeField] const string TAKE_DAMAGE_TRIGGER = "TakeDamage";
 
     void Awake()
     {
@@ -52,7 +53,12 @@ public class CharacterAnimatorController : MonoBehaviour
         Debug.Log("Triggering Parry Hit Animation");
         animator.SetTrigger(PARRY_HIT_TRIGGER);
     }
-    void LateUpdate()
+    public void TriggerTakeDamage()
+    {
+        Debug.Log("Triggering Take Damage Animation");
+        animator.SetTrigger(TAKE_DAMAGE_TRIGGER);
+    }
+    void Update()
     {
         animator.SetBool(IS_GROUNDED_PARAM, groundChecker.IsGrounded());
         animator.SetFloat(SPEED_PARAM, Mathf.Abs(rigidBody.linearVelocityX) * speedMultiplier);

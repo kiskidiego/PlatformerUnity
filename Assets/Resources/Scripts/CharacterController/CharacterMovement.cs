@@ -4,7 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(GroundChecker))]
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] float maxSpeed = 5f;
+    public bool canMove = true;
+    public float maxSpeed = 5f;
     [SerializeField] float acceleration = 10f;
     [SerializeField] float deceleration = 15f;
     [SerializeField] float airControlFactor = 0.5f;

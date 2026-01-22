@@ -37,9 +37,10 @@ public class CameraFollow : MonoBehaviour
             );
         }
         Vector3 desiredPosition = Vector3.Lerp(transform.position, targetPosition, lerpSpeed * Time.deltaTime);
-        if ((desiredPosition - transform.position).sqrMagnitude > sqrMaxDistance)
+        if ((targetPosition - desiredPosition).sqrMagnitude > sqrMaxDistance)
         {
-            desiredPosition = transform.position + (desiredPosition - transform.position).normalized * maxDistance;
+            Vector3 direction = (targetPosition - desiredPosition).normalized;
+            desiredPosition = targetPosition - direction * maxDistance;
         }
         transform.position = desiredPosition;
     }

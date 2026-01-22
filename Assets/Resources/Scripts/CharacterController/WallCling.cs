@@ -62,7 +62,6 @@ public class WallCling : MonoBehaviour
             }
         }
         RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, length, wallLayerMask);
-        Debug.Log("Wall Cling Raycast: Direction " + rayDirection + " Length " + length);
         Debug.DrawRay(transform.position, rayDirection * length, Color.red);
         if(hit.collider != null && Vector2.Dot(hit.normal, -rayDirection) >= minWallDotProduct)
         {

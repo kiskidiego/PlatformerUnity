@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4862670654397370536}
   - component: {fileID: 2459126099122649530}
-  - component: {fileID: 7593837419787174369}
   - component: {fileID: 7416489692964739674}
   - component: {fileID: 7070117764180781919}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1911015481903171433}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.862, y: -0.08471, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -69,7 +68,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.5707124, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -79,35 +78,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5825752, y: 1}
   m_EdgeRadius: 0
---- !u!50 &7593837419787174369
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911015481903171433}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &7416489692964739674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
   damage: 10
+  knockbackForce: 5
 --- !u!212 &7070117764180781919
 SpriteRenderer:
   serializedVersion: 2
@@ -357,7 +330,7 @@ MonoBehaviour:
   dashAction: {fileID: 0}
   parryAction: {fileID: 0}
   lookAction: {fileID: 0}
-  fallAction: {fileID: 0}
+  fallAction: {fileID: 7877234413240752866, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!50 &8855559113105029660
 Rigidbody2D:
   serializedVersion: 5
@@ -451,7 +424,7 @@ MonoBehaviour:
   maxGroundAngle: 45
   groundLayer:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 119
 --- !u!114 &1164323349684217567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505fc01fa8f410148b5f3da53120d042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
+  canMove: 1
   maxSpeed: 5
   acceleration: 20
   deceleration: 15
@@ -481,6 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f532a50ec0c0f5e4c8f43a4505972f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterJumpHandler
+  canJump: 1
+  canAirJump: 0
   groundJump:
     jumpForce: 150
     maxJumpHoldTime: 0.25
@@ -499,6 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df8ee31e0ca4184298a0825ddea4435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDash
+  canDash: 0
   dashSpeed: 20
   dashDuration: 0.2
   dashCooldown:
@@ -533,6 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f0ead04b144e34d8682c632b5c3ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallJump
+  canWallJump: 0
   wallJump:
     jumpForce: 125
     maxJumpHoldTime: 0.25
@@ -563,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimatorController
   animator: {fileID: 12371491306413413}
-  speedMultiplier: 1
+  speedMultiplier: 0.2
 --- !u!114 &9162821048546768795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,6 +583,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
   maxHealth: 100
+  invulnerabilityCooldown:
+    cooldownTime: 1.5
+  flashCooldown:
+    cooldownTime: 0.1
   canTakeDamage: 1
 --- !u!114 &3605800269207289376
 MonoBehaviour:
@@ -644,7 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 116607396477068501}
   - component: {fileID: 1062225176689524449}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,7 +720,7 @@ GameObject:
   - component: {fileID: 953482023065198352}
   - component: {fileID: 7651239866136339771}
   - component: {fileID: 2172471506109680280}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Parry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +810,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4369574277123937929}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -907,6 +889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
   damage: 10
+  knockbackForce: 5
 --- !u!1 &5849691489063653456
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573280478420184141}
   - component: {fileID: 2828265795072931106}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
