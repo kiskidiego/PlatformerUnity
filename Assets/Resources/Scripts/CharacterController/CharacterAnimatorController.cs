@@ -30,32 +30,26 @@ public class CharacterAnimatorController : MonoBehaviour
     }
     public void TriggerJump()
     {
-        Debug.Log("Triggering Jump Animation");
         animator.SetTrigger(JUMP_TRIGGER);
     }
     public void TriggerDash()
     {
-        Debug.Log("Triggering Dash Animation");
         animator.SetTrigger(DASH_TRIGGER);
     }
     public void TriggerAttack()
     {
-        Debug.Log("Triggering Attack Animation");
         animator.SetTrigger(ATTACK_TRIGGER);
     }
     public void TriggerParry()
     {
-        Debug.Log("Triggering Parry Animation");
         animator.SetTrigger(PARRY_TRIGGER);
     }
     public void TriggerParryHit()
     {
-        Debug.Log("Triggering Parry Hit Animation");
         animator.SetTrigger(PARRY_HIT_TRIGGER);
     }
     public void TriggerTakeDamage()
     {
-        Debug.Log("Triggering Take Damage Animation");
         animator.SetTrigger(TAKE_DAMAGE_TRIGGER);
     }
     void Update()

@@ -71,8 +71,6 @@ public class CharacterParry : MonoBehaviour
 
     void OnParryHit()
     {
-        Debug.Log("Parry successful!");
         onParryHit?.Invoke();
-        EndParry();
     }
 }

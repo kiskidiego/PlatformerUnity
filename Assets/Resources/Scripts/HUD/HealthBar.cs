@@ -12,6 +12,7 @@ public class HealthBar : MonoBehaviour
         image = GetComponent<Image>();
         playerHealth = FindFirstObjectByType<PlayerHealth>();
         playerHealth.onDamageCallback += UpdateHealthBar;
+        playerHealth.onHealCallback += UpdateHealthBar;
         fillStep = 1f / pixels;
     }
 

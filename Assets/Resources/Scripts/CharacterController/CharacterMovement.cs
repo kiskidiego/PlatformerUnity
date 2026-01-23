@@ -46,4 +46,9 @@ public class CharacterMovement : MonoBehaviour
         velocity = Mathf.MoveTowards(velocity, targetSpeed, accelerationToUse * Time.fixedDeltaTime);
         rigidBody.linearVelocityX = velocity;
     }
+
+    void OnDisable()
+    {
+        rigidBody.linearVelocityX = 0f;
+    }
 }

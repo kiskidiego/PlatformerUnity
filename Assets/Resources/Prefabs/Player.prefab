@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852188c912c7a1c44a223a8f238b6dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallCling
+  canWallCling: 0
   gravityMultiplier: 0.2
   wallCheckDistance: 0.6
   maxWallAngle: 15
@@ -510,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f0ead04b144e34d8682c632b5c3ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallJump
-  canWallJump: 0
+  canWallJump: 1
   wallJump:
     jumpForce: 125
     maxJumpHoldTime: 0.25

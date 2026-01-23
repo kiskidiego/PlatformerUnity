@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
         platformFallThrough.DisableFallThrough();
     }
 
-    void EnableInput()
+    public void EnableInput()
     {
         moveAction.action.Enable();
         jumpAction.action.Enable();
@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
         parryAction.action.Enable();
         lookAction.action.Enable();
     }
-    void DisableInput()
+    public void DisableInput()
     {
         moveAction.action.Disable();
         jumpAction.action.Disable();
