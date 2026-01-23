@@ -3,8 +3,6 @@ using UnityEngine.TextCore.Text;
 
 [RequireComponent(typeof(GroundChecker))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(WallCling))]
-[RequireComponent(typeof(CharacterDirection))]
 public class CharacterAnimatorController : MonoBehaviour
 {
     [SerializeField] Animator animator;
