@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d45ac267bcf9b6347b81d2ed95269beb
+guid: bdb8f0d63a4f6f548b35de7c857adcc9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -650053425108306497
-    second: waterfall_bottom_anim_strip_4_0
+      213: -372114562080597852
+    second: bg_0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,15 +40,15 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: waterfall_bottom_anim_strip_4_0
+      name: bg_0_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 8
+        width: 240
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb5b46f9adb8af6f0800000000000000
-      internalID: -650053425108306497
+      spriteID: 4a89f6ff6cbf5daf0800000000000000
+      internalID: -372114562080597852
       vertices: []
       indices: 
       edges: []
@@ -125,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      waterfall_bottom_anim_strip_4_0: -650053425108306497
+      bg_0_0: -372114562080597852
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

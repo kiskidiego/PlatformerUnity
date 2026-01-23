@@ -18,6 +18,7 @@ public class Jump
 
     public void StartJump()
     {
+        AudioManager.Instance.PlaySound(Sounds.Jump);
         active = true;
     }
 

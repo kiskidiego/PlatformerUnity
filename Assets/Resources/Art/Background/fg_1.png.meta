@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6399ace5f1e8dec4da72ae0260cea63f
+guid: 6d838031a744cde478fe1d1d499d49b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5745253112252664404
-    second: waterfall_anim_strip_4_0
+      213: 3793622439617186879
+    second: fg_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: waterfall_anim_strip_4_0
+      name: fg_1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 24
+        width: 240
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca5f87bebb2c440b0800000000000000
-      internalID: -5745253112252664404
+      spriteID: f3c45556287a5a430800000000000000
+      internalID: 3793622439617186879
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      waterfall_anim_strip_4_0: -5745253112252664404
+      fg_1_0: 3793622439617186879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
