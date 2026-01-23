@@ -9,15 +9,19 @@ public class Goal : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlayerController player))
         {
+            Debug.Log("Level Complete!");
             player.DisableInput();
-            clickAction.action.performed += BackToMenu;
             clickAction.action.Enable();
+            clickAction.action.performed += BackToMenu;
+        
+            AudioManager.Instance.PlaySound(Sounds.GoalReached);
         }
     }
     void BackToMenu(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
+            Debug.Log("Back to Menu");
             UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
             clickAction.action.performed -= BackToMenu;
             clickAction.action.Disable();

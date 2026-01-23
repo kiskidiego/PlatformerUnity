@@ -49,6 +49,9 @@ public class CharacterDash : MonoBehaviour
             {
                 dashDirection = new Vector2(characterDirection.Facing, 0f);
             }
+
+            AudioManager.Instance.PlaySound(Sounds.Dash);
+
             return true;
         }
         return false;

@@ -6,6 +6,7 @@ public class DashPowerUp : MonoBehaviour
     {
         if (collision.TryGetComponent(out CharacterDash dashHandler))
         {
+            AudioManager.Instance.PlaySound(Sounds.PowerUp);
             dashHandler.canDash = true;
             Destroy(gameObject);
         }

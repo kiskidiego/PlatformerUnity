@@ -36,6 +36,8 @@ public class CharacterJumpHandler : MonoBehaviour
         activeJump = groundJump;
         activeJump.StartJump();
         ResetJumps();
+
+        AudioManager.Instance.PlaySound(Sounds.Jump);
     }
     bool StartAirJump()
     {
@@ -50,6 +52,9 @@ public class CharacterJumpHandler : MonoBehaviour
         activeJump = airJumps[currentJumpIndex];
         activeJump.StartJump();
         currentJumpIndex++;
+
+        AudioManager.Instance.PlaySound(Sounds.Jump);
+
         return true;
     }
     public void StopJump()

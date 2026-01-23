@@ -46,6 +46,8 @@ public class CharacterAttack : MonoBehaviour
                 attackPositionOffset.y
             );
 
+            AudioManager.Instance.PlaySound(Sounds.Attack);
+            
             attackCooldown.StartCooldown(callback);
             return true;
         }

@@ -43,6 +43,9 @@ public class CharacterParry : MonoBehaviour
             healthBar.canTakeDamage = false;
             isParrying = true;
             parryTimeRemaining = parryDuration;
+
+            AudioManager.Instance.PlaySound(Sounds.Parry);
+
             return true;
         }
         return false;

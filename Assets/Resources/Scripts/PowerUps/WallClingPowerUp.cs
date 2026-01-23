@@ -6,6 +6,7 @@ public class WallClingPowerUp : MonoBehaviour
     {
         if (collision.TryGetComponent(out WallCling wallCling))
         {
+            AudioManager.Instance.PlaySound(Sounds.PowerUp);
             wallCling.canWallCling = true;
             Destroy(gameObject);
         }

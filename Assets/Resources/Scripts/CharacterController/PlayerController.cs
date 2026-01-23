@@ -200,6 +200,8 @@ public class PlayerController : MonoBehaviour
         dashAction.action.Enable();
         parryAction.action.Enable();
         lookAction.action.Enable();
+        fallAction.action.Enable();
+        attackAction.action.Enable();
     }
     public void DisableInput()
     {
@@ -209,5 +211,7 @@ public class PlayerController : MonoBehaviour
         dashAction.action.Disable();
         parryAction.action.Disable();
         lookAction.action.Disable();
+        fallAction.action.Disable();
+        attackAction.action.Disable();
     }
 }

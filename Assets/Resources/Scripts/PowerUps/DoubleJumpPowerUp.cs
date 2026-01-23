@@ -6,6 +6,7 @@ public class DoubleJumpPowerUp : MonoBehaviour
     {
         if (collision.TryGetComponent(out CharacterJumpHandler jumpHandler))
         {
+            AudioManager.Instance.PlaySound(Sounds.PowerUp);
             jumpHandler.canAirJump = true;
             Destroy(gameObject);
         }

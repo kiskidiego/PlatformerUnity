@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable, IHealable
 {
@@ -28,6 +29,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IHealable
 
     public void Heal(float amount)
     {
+        AudioManager.Instance.PlaySound(Sounds.Heal);
         currentHealth += amount;
         if (currentHealth > maxHealth)
         {
@@ -45,6 +47,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IHealable
 
         if (!canTakeDamage) return;
 
+        AudioManager.Instance.PlaySound(Sounds.TakeDamage);
 
         canTakeDamage = false;
         invulnerabilityCooldown.StartCooldown();
@@ -87,5 +90,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IHealable
     void Die()
     {
         Debug.Log("Character has died.");
+        SceneManager.LoadScene("MainMenu");
     }
 }

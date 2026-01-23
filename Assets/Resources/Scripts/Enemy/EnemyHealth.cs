@@ -34,6 +34,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         spriteRenderer.enabled = false;
         blink.StartCooldown();
 
+        AudioManager.Instance.PlaySound(Sounds.TakeDamage);
+
         if (currentHealth <= 0f)
         {
             Die();
